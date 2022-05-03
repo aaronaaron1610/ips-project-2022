@@ -40,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'student_management_app.LoginCheckMiddleWare.LoginCheckMiddleWare',
 ]
 
@@ -130,7 +131,7 @@ AUTHENTICATION_BACKENDS = ['student_management_app.EmailBackEnd.EmailBackEnd']
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-STATICFILES_STORAGE='whitenoise.stroage.CompressedManifestStaticFilesStroage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 import dj_database_url
 prod_db=dj_database_url.config(conn_max_age=500)
