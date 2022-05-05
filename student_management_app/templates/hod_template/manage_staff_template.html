@@ -62,10 +62,10 @@
                             <thead>
                                 <tr>
                                 <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
                                 <th>Email</th>
+                                <th>Username</th>
+                                <th>DOB</th>
+                                <th>Phone Number</th>
                                 <th>Address</th>
                                 <th>Last Login</th>
                                 <th>Date Joined</th>
@@ -76,10 +76,10 @@
                                 {% for staff in staffs %}
                                 <tr>
                                 <td>{{ staff.admin.id }}</td>
+                                <td>{{ staff.admin.email }}</td>
+                                <td>{{ staff.admin.username }}</td>
                                 <td>{{ staff.admin.first_name }}</td>
                                 <td>{{ staff.admin.last_name }}</td>
-                                <td>{{ staff.admin.username }}</td>
-                                <td>{{ staff.admin.email }}</td>
                                 <td>{{ staff.address }}</td>
                                 <td>{{ staff.admin.last_login }}</td>
                                 <td>{{ staff.admin.date_joined }}</td>
