@@ -50,7 +50,7 @@ def staff_home(request):
     for student in students_attendance:
         attendance_present_count = AttendanceReport.objects.filter(status=True, student_id=student.id).count()
         attendance_absent_count = AttendanceReport.objects.filter(status=False, student_id=student.id).count()
-        student_list.append(student.admin.first_name+" "+ student.admin.last_name)
+        student_list.append(student.admin.username)
         student_list_attendance_present.append(attendance_present_count)
         student_list_attendance_absent.append(attendance_absent_count)
 
@@ -153,7 +153,7 @@ def get_students(request):
     list_data = []
 
     for student in students:
-        data_small={"id":student.admin.id, "name":student.admin.first_name+" "+student.admin.last_name}
+        data_small={"id":student.admin.id, "name":student.admin.username}
         list_data.append(data_small)
 
     return JsonResponse(json.dumps(list_data), content_type="application/json", safe=False)
@@ -241,7 +241,7 @@ def get_attendance_student(request):
     list_data = []
 
     for student in attendance_data:
-        data_small={"id":student.student_id.admin.id, "name":student.student_id.admin.first_name+" "+student.student_id.admin.last_name, "status":student.status}
+        data_small={"id":student.student_id.admin.id, "name":student.student_id.admin.username, "status":student.status}
         list_data.append(data_small)
 
     return JsonResponse(json.dumps(list_data), content_type="application/json", safe=False)
