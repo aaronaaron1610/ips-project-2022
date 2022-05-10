@@ -51,7 +51,7 @@ def admin_home(request):
         leaves = LeaveReportStaff.objects.filter(staff_id=staff.id, leave_status=1).count()
         staff_attendance_present_list.append(attendance)
         staff_attendance_leave_list.append(leaves)
-        staff_name_list.append(staff.admin.first_name)
+        staff_name_list.append(staff.admin.username)
 
     # For Students
     student_attendance_present_list=[]
@@ -65,7 +65,7 @@ def admin_home(request):
         leaves = LeaveReportStudent.objects.filter(student_id=student.id, leave_status=1).count()
         student_attendance_present_list.append(attendance)
         student_attendance_leave_list.append(leaves+absent)
-        student_name_list.append(student.admin.first_name)
+        student_name_list.append(student.admin.username)
 
 
     context={
